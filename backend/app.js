@@ -4,6 +4,7 @@ const app = express();
 require('dotenv').config();
 
 const testRoutes = require('./routes/test');
+const userRoutes = require('./routes/user');
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,5 +16,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/test', testRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
